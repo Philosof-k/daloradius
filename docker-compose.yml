@@ -12,7 +12,7 @@ services:
       - MYSQL_PASSWORD=radiusdbpw
       - MYSQL_ROOT_PASSWORD=radiusrootdbpw
     volumes:
-      - "./data/mysql:/var/lib/mysql"
+      - "$DOCKER_DIR/daloradius/mysql:/var/lib/mysql"
 
   radius:
     container_name: radius
@@ -34,7 +34,7 @@ services:
       # Optional settings
       - DEFAULT_CLIENT_SECRET=testing123
     volumes:
-      - ./data/freeradius:/data
+      - $DOCKER_DIR/daloradius/freeradius:/data
     # If you want to disable debug output, remove the command parameter
     command: -X
 
@@ -62,4 +62,4 @@ services:
       - MAIL_AUTH=
 
     volumes:
-      - ./data/daloradius:/data
+      - $DOCKER_DIR/daloradius/daloradius:/data
