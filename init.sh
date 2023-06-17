@@ -18,7 +18,8 @@ function init_daloradius {
 	sed -i "s/\$configValues\['FREERADIUS_VERSION'\] = .*;/\$configValues\['FREERADIUS_VERSION'\] = '3';/" $DALORADIUS_PATH/library/daloradius.conf.php
 	sed -i "s|\$configValues\['CONFIG_PATH_DALO_VARIABLE_DATA'\] = .*;|\$configValues\['CONFIG_PATH_DALO_VARIABLE_DATA'\] = '/var/www/html/var';|" $DALORADIUS_PATH/library/daloradius.conf.php
 	sed -i "s/\$configValues\['CONFIG_LANG'\] = .*;/\$configValues\['CONFIG_LANG'\] = 'ru';/" $DALORADIUS_PATH/library/daloradius.conf.php
-	
+	sed -i "s/\$configValues\['CONFIG_IFACE_TABLES_LISTING'\] = .*;/\$configValues\['CONFIG_IFACE_TABLES_LISTING'\] = '80';/" $DALORADIUS_PATH/library/daloradius.conf.php
+		
 	if [ -n "$DEFAULT_FREERADIUS_SERVER" ]; then
 		sed -i "s/\$configValues\['CONFIG_MAINT_TEST_USER_RADIUSSERVER'\] = .*;/\$configValues\['CONFIG_MAINT_TEST_USER_RADIUSSERVER'\] = '$DEFAULT_FREERADIUS_SERVER';/" $DALORADIUS_PATH/library/daloradius.conf.php
 	else
