@@ -72,7 +72,7 @@ services:
       - TZ=Europe/Moscow
       - PMA_ARBITRARY=1 #optional
       - PMA_HOST=radius-mysql
-      - PMA_USER=1234
+      - PMA_USER=root
 #      - PMA_ABSOLUTE_URI=https://phpmyadmin.example.com #optional
     volumes:
       - $DOCKER_DIR/daloradius/phpmyadmin:/config
