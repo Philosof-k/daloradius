@@ -10,7 +10,7 @@ services:
       - MYSQL_DATABASE=radius
       - MYSQL_USER=radius
       - MYSQL_PASSWORD=$MYSQL_PASSWORD
-      - MYSQL_ROOT_PASSWORD=radiusrootdbpw
+      - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
     volumes:
       - "$DOCKER_DIR/daloradius/mysql:/var/lib/mysql"
 
