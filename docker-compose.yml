@@ -13,6 +13,7 @@ services:
       - MYSQL_ROOT_PASSWORD=radiusrootdbpw
     volumes:
       - "$DOCKER_DIR/daloradius/mysql:/var/lib/mysql"
+    restart: unless-stopped
 
   radius:
     container_name: radius
@@ -37,6 +38,7 @@ services:
       - $DOCKER_DIR/daloradius/freeradius:/data
     # If you want to disable debug output, remove the command parameter
     command: -X
+    restart: unless-stopped
 
   radius-web:
     build: .
@@ -46,7 +48,7 @@ services:
       - radius
       - radius-mysql
     ports:
-      - '80:80'
+      - '81:80'
     environment:
       - MYSQL_HOST=radius-mysql
       - MYSQL_PORT=3306
@@ -60,6 +62,21 @@ services:
       - MAIL_PORT=25
       - MAIL_FROM=root@daloradius.xdsl.by
       - MAIL_AUTH=
-
     volumes:
       - $DOCKER_DIR/daloradius/daloradius:/data
+    restart: unless-stopped
+
+  phpmyadmin:
+    image: lscr.io/linuxserver/phpmyadmin:latest
+    container_name: phpmyadmin
+    environment:
+      - PUID=1001
+      - PGID=998
+      - TZ=Europe/Moscow
+      - PMA_ARBITRARY=1 #optional
+#      - PMA_ABSOLUTE_URI=https://phpmyadmin.example.com #optional
+    volumes:
+      - $DOCKER_DIR/daloradius/phpmyadmin:/config
+    ports:
+      - 82:80
+    restart: unless-stopped
