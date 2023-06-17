@@ -55,7 +55,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone #
  && wget http://pear.php.net/go-pear.phar \
  && php go-pear.phar \
  && rm go-pear.phar \
-# && pear channel-update pear.php.net \
+ && pear channel-update pear.php.net \
 # && pear install -a -f DB \
 # && pear install -a -f Mail \
 # && pear install -a -f Mail_Mime
