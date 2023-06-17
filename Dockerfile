@@ -56,9 +56,9 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone #
  && php go-pear.phar \
  && rm go-pear.phar \
  && pear channel-update pear.php.net \
-# && pear install -a -f DB \
-# && pear install -a -f Mail \
-# && pear install -a -f Mail_Mime
+ && pear install -a -f DB \
+ && pear install -a -f Mail \
+ && pear install -a -f Mail_Mime
 
 # Add current project directory which should be a clone of daloradius from:
 # git@github.com:lirantal/daloradius.git
