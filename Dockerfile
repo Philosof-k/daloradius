@@ -19,7 +19,7 @@ LABEL Description="daloRADIUS Official Docker based on Ubuntu 20.04 LTS and PHP7
 ENV DEBIAN_FRONTEND noninteractive
 
 # default timezone
-ENV TZ Europe/Vienna
+ENV TZ Europe/Moscow
 
 # PHP install
 RUN apt-get update \
@@ -49,16 +49,16 @@ RUN apt-get update \
 
 
 # PHP Pear DB library install
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone #\
  && update-ca-certificates -f \
- && mkdir -p /tmp/pear/cache \
- && wget http://pear.php.net/go-pear.phar \
- && php go-pear.phar \
- && rm go-pear.phar \
- && pear channel-update pear.php.net \
- && pear install -a -f DB \
- && pear install -a -f Mail \
- && pear install -a -f Mail_Mime
+# && mkdir -p /tmp/pear/cache \
+# && wget http://pear.php.net/go-pear.phar \
+# && php go-pear.phar \
+# && rm go-pear.phar \
+# && pear channel-update pear.php.net \
+# && pear install -a -f DB \
+# && pear install -a -f Mail \
+# && pear install -a -f Mail_Mime
 
 # Add current project directory which should be a clone of daloradius from:
 # git@github.com:lirantal/daloradius.git
