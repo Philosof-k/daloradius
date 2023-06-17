@@ -51,8 +51,8 @@ RUN apt-get update \
 # PHP Pear DB library install
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone #\
  && update-ca-certificates -f \
-# && mkdir -p /tmp/pear/cache \
-# && wget http://pear.php.net/go-pear.phar \
+ && mkdir -p /tmp/pear/cache \
+ && wget http://pear.php.net/go-pear.phar \
 # && php go-pear.phar \
 # && rm go-pear.phar \
 # && pear channel-update pear.php.net \
