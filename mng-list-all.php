@@ -30,7 +30,7 @@
 	
 
 	//setting values for the order by and order type variables
-	isset($_REQUEST['orderBy']) ? $orderBy = $_REQUEST['orderBy'] : $orderBy = "id";
+	isset($_REQUEST['orderBy']) ? $orderBy = $_REQUEST['orderBy'] : $orderBy = "firstname";
 	isset($_REQUEST['orderType']) ? $orderType = $_REQUEST['orderType'] : $orderType = "asc";
 	
 	include_once('library/config_read.php');
@@ -171,6 +171,7 @@
 		</th>
 
 		<th scope='col'> 
+		<a title='Sort' class='novisit' href=\"" . $_SERVER['PHP_SELF'] . "?orderBy=firstname&orderType=$orderType\">
 		".t('all','Name')."</a>
 		</th>
 		
