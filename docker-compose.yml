@@ -9,7 +9,7 @@ services:
     environment:
       - MYSQL_DATABASE=radius
       - MYSQL_USER=radius
-#      - MYSQL_PASSWORD=radiusdbpw
+      - MYSQL_PASSWORD=$MYSQL_PASSWORD
       - MYSQL_ROOT_PASSWORD=radiusrootdbpw
     volumes:
       - "$DOCKER_DIR/daloradius/mysql:/var/lib/mysql"
@@ -30,7 +30,7 @@ services:
       - MYSQL_PORT=3306
       - MYSQL_DATABASE=radius
       - MYSQL_USER=radius
-#      - MYSQL_PASSWORD=$MYSQL_PASSWORD
+      - MYSQL_PASSWORD=$MYSQL_PASSWORD
       # Optional settings
       - DEFAULT_CLIENT_SECRET=testing123
     volumes:
@@ -52,7 +52,7 @@ services:
       - MYSQL_PORT=3306
       - MYSQL_DATABASE=radius
       - MYSQL_USER=radius
-#      - MYSQL_PASSWORD=$MYSQL_PASSWORD
+      - MYSQL_PASSWORD=$MYSQL_PASSWORD
       # Optional Settings:
       - DEFAULT_CLIENT_SECRET=testing123
       - DEFAULT_FREERADIUS_SERVER=radius
