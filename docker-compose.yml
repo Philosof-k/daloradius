@@ -13,7 +13,6 @@ services:
       - MYSQL_ROOT_PASSWORD=radiusrootdbpw
     volumes:
       - "$DOCKER_DIR/daloradius/mysql:/var/lib/mysql"
-    restart: unless-stopped
 
   radius:
     container_name: radius
@@ -38,7 +37,6 @@ services:
       - $DOCKER_DIR/daloradius/freeradius:/data
     # If you want to disable debug output, remove the command parameter
     command: -X
-    restart: unless-stopped
 
   radius-web:
     build: .
@@ -64,7 +62,6 @@ services:
       - MAIL_AUTH=
     volumes:
       - $DOCKER_DIR/daloradius/daloradius:/data
-    restart: unless-stopped
 
   phpmyadmin:
     image: lscr.io/linuxserver/phpmyadmin:latest
