@@ -70,7 +70,7 @@ services:
       - PUID=1001
       - PGID=998
       - TZ=Europe/Moscow
-      - PMA_ARBITRARY=0 #optional
+      - PMA_ARBITRARY=1 #optional
       - PMA_HOST=radius-mysql
       - PMA_USER=1234
 #      - PMA_ABSOLUTE_URI=https://phpmyadmin.example.com #optional
