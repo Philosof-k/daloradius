@@ -8,10 +8,10 @@
 # Run the container:
 # 1. docker run -p 80:80 -d lirantal/daloradius
 
-FROM ubuntu:22.04
+FROM ubuntu:20.04
 MAINTAINER Liran Tal <liran.tal@gmail.com>
 
-LABEL Description="daloRADIUS Official Docker based on Ubuntu 22.04 LTS and PHP7." \
+LABEL Description="daloRADIUS Official Docker based on Ubuntu 20.04 LTS and PHP7." \
 	License="GPLv2" \
 	Usage="docker build . -t lirantal/daloradius && docker run -d -p 80:80 lirantal/daloradius" \
 	Version="1.0"
