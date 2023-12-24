@@ -3,16 +3,23 @@ version: "3"
 services:
 
   radius-mysql:
-    image: mariadb:10.3
-    container_name: radius-mysql
-    restart: unless-stopped
+    image: lscr.io/linuxserver/mariadb:latest
+    container_name: mariadb
     environment:
+      - PUID=1001
+      - PGID=998
+      - TZ=Europe/Moscow
+      - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
       - MYSQL_DATABASE=radius
       - MYSQL_USER=radius
       - MYSQL_PASSWORD=$MYSQL_PASSWORD
-      - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
+#      - REMOTE_SQL=http://URL1/your.sql,https://URL2/your.sql #optional
     volumes:
-      - "$DOCKER_DIR/daloradius/mysql:/var/lib/mysql"
+      - $DOCKER_DIR/daloradius/mysql:/config
+#    ports:
+#      - 3306:3306
+    restart: unless-stopped
+
 
   radius:
     container_name: radius
